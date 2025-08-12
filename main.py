@@ -93,14 +93,14 @@ def run_selenium_instance(link):
 def run_earn_parallel():
     try:
         # URL cũ
-        old_url = "https://raw.githubusercontent.com/anisidina29/anisidina29-selenium_earnvids_docker/refs/heads/main/earnvids.txt"
+        old_url = "https://raw.githubusercontent.com/baidumax/anisidina29-selenium_earnvids_docker/refs/heads/main/earnvids.txt"
         response_old = requests.get(old_url)
         response_old.raise_for_status()
         old_links = response_old.text.strip().splitlines()
         print(f"Loaded {len(old_links)} links from old URL.")
 
         # URL mới
-        new_url = "https://raw.githubusercontent.com/anisidina29/anisidina29-selenium_earnvids_docker/refs/heads/main/earnvids_link2.txt"
+        new_url = "https://raw.githubusercontent.com/baidumax/anisidina29-selenium_earnvids_docker/refs/heads/main/earnvids_link2.txt"
         response_new = requests.get(new_url)
         response_new.raise_for_status()
         new_links = response_new.text.strip().splitlines()
@@ -135,5 +135,6 @@ def run_earn_parallel():
         p.join()
 
     print("All earn processes completed.")
+
 
 run_earn_parallel()
